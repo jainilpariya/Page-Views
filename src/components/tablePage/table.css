@@ -1,0 +1,16 @@
+.table-main {
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+.table-head {
+    text-align : center;
+    border: 1px solid black;
+    background-color: burlywood;
+}
+
+.table-data {
+    text-align : center;
+    border: 1px solid black;
+    background-color: cadetblue;
+}

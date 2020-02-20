@@ -1,0 +1,69 @@
+.form-content {
+    display: flex;
+    height: 500px;
+    justify-content: center;
+}
+.form-name {
+    width: max-content;
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80px;
+    margin: 4px;
+}
+.form_label {
+    height:16px;
+}
+.form_ip {
+    height: 24px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.form-email {
+    width: max-content;
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80px;
+    margin: 4px;
+}
+
+.form-align {
+    border: 5px solid rgb(53, 5, 116);
+    background-color: rgb(176, 255, 206);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 400px;
+    height: 300px;
+    align-self: center;
+}
+
+.form-submit {
+    align-self: center;
+}
+
+.not_touched {
+    color: blue;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.err {
+    color : red;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.success {
+    color: green;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.button {
+    background-color: rgb(255, 170, 113);
+}
