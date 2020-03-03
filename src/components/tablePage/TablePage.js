@@ -4,8 +4,19 @@ import { connect } from 'react-redux'
 import { nextPage, prevPage, firstPage, lastPage, goToPage } from '../../reducer/table/actions/index'
 import { debounce } from 'lodash'
 import './table.css'
+import jsPDF from "jspdf"
+// import { renderToString } from "react-dom/server";
+
 
 class TablePage extends React.Component {
+
+    GenPDF = () => {
+
+        const doc = new jsPDF("p", "mm", "a4");
+        let con = document.getElementById('pagination').innerText;
+        doc.fromHTML(con);
+        doc.save("abc");
+    }
 
     tabledata(pg, ct, tot) {
         let start = (pg - 1) * ct
@@ -13,7 +24,7 @@ class TablePage extends React.Component {
         let arr = Data.slice(start, end)
         return (
             arr.map((item) => {
-                return(
+                return (
                     <>
                         <tr>
                             <td className="table-data">{item.firstName}</td>
@@ -79,7 +90,8 @@ class TablePage extends React.Component {
         var divContents = document.getElementById("pagination").innerHTML;
         var a = window.open('', '', 'height=500, width = 500');
         a.document.write('<html>');
-        a.document.write('<body > <h1>Div contents are <br>');
+        a.document.write('<body onafterprint="self.close()">');
+        a.document.write('<h1>Div contents are <br>');
         a.document.write(divContents);
         a.document.write('</body></html>');
         a.document.close();
@@ -94,8 +106,9 @@ class TablePage extends React.Component {
             <div id="pagination">
                 <h1>Pagination View</h1>
                 <button onClick={this.printDivPagination}>Print</button>
+                <button onClick={this.GenPDF}>Generate PDF</button>
                 <hr />
-                <table className="table-main">
+                <table id="tablepage" className="table-main">
                     <thead>
                         <tr>
                             <th colSpan="2" className="table-head">Name</th>
@@ -121,7 +134,7 @@ class TablePage extends React.Component {
                     <button onClick={this.onClickNextPage} disabled={this.handleDisableNext()}>Next Page</button>
                     <button onClick={this.onClickLastPage}>Last Page</button>
                 </div>
-                <div> 
+                <div>
                     Displaying page : {pg}, total entries : {tot}, per page : {ct}
                 </div>
             </div>

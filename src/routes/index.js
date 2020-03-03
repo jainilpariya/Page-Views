@@ -11,7 +11,6 @@ import '../app.css'
 class Routes extends React.Component {
 
     render() {
-        console.log('match', this.props.match)
         return (
             <>
                 <Router history={history}>
